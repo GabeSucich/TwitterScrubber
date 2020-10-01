@@ -5,7 +5,7 @@ var db = require('./models')
 
 var passport = require('./config/passport')
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 app = express()
 
