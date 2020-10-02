@@ -8,6 +8,15 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 nonEmpty: true
             }
+        },
+        mostRecentTweetId: {
+            type: DataTypes.STRING,
+            defaultValue: null
+        }, 
+    
+        oldestTweetId: {
+            type: DataTypes.STRING,
+            defaultValue: null
         }
     })
 
