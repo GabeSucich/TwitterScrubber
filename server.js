@@ -16,6 +16,10 @@ app.use(session({ secret: "XDLMFAOURDAD_6969", resave: true, saveUninitialized: 
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get("/api/userInfo", function(req, res) {
+    res.json(req.user)
+})
+
 
 db.sequelize.sync({ force: false }).then(function () {
     app.listen(PORT, function () {
