@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-// import Home from "./pages/Home/Home"
-// import {UserProvider} from "./utils/UserState"
+import Application from "./pages"
 import API from "./utils/API"
+import {UserProvider} from "./utils/UserState"
 
 function App() {
   
@@ -14,7 +13,7 @@ function App() {
 
   return (
     <UserProvider>
-      <Home></Home>
+      <Application/>
     </UserProvider>
   );
 }
