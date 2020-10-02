@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Application from "./pages"
+import Application from "./Application"
 import API from "./utils/API"
 import {UserProvider} from "./utils/UserState"
 

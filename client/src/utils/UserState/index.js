@@ -1,5 +1,5 @@
 import React, {useReducer, useContext, createContext} from 'react'
-import {SET_USER} from "./action"
+import {SET_USER} from "./userAction"
 
 const UserContext = createContext()
 const {Provider} = UserContext
@@ -22,7 +22,7 @@ const UserProvider = ({value=[], ...props}) => {
 }
 
 const useUserContext = () => {
-    return UserContext(UserContext)
+    return useContext(UserContext)
 }
 
 export {useUserContext, UserProvider}
