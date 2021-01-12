@@ -18,6 +18,10 @@ app.use(passport.session());
 
 
 require("./routes/authentication")(app)
+require("./routes/getTweets")(app)
+require("./routes/handleTweets")(app)
+require("./routes/keywords")(app)
+require("./routes/messageTemplates")(app)
 
 db.sequelize.sync({ force: false }).then(function () {
     app.listen(PORT, function () {

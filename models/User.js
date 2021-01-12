@@ -19,11 +19,14 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   User.prototype.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
+    return password == this.password;
   };
 
   User.associate = function (models) {
-    
+    User.hasMany(models.Keyword, {onDelete: "cascade"});
+    User.hasMany(models.Contact, {onDelete: "cascade"});
+    User.hasMany(models.Blacklist, {onDelete: "cascade"});
+    User.hasMany(models.Message, {onDelete: "cascade"});
   };
   return User;
 }

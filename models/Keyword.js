@@ -6,17 +6,8 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                nonEmpty: true
+                notEmpty: true
             }
-        },
-        mostRecentTweetId: {
-            type: DataTypes.STRING,
-            defaultValue: null
-        }, 
-    
-        oldestTweetId: {
-            type: DataTypes.STRING,
-            defaultValue: null
         }
     })
 

@@ -1,15 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import Application from "./Application"
-import API from "./utils/API"
-import {UserProvider} from "./utils/UserState"
+import {UserProvider} from "./GlobalStates/UserState"
+import 'semantic-ui-css/semantic.min.css'
 
 function App() {
-  
-  API.getUserInfo().then(function(user) {
-    if (!user) {
-      console.log("urdadmadlmao")
-    }
-  })
 
   return (
     <UserProvider>

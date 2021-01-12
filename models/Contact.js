@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                nonEmpty: true
+                notEmpty: true
             },
             primaryKey: true
         },
@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                nonEmpty: true
+                notEmpty: true
             }
         },
         name: {
@@ -31,7 +31,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
             validate: {
-                nonEmpty: true
+                notEmpty: true
             }
         },
         imgUrl : {

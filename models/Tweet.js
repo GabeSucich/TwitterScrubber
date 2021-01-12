@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
             unique: true,
             allowNull: false,
             validate: {
-                nonEmpty: true
+                notEmpty: true
             }, 
             primaryKey: true
         },
@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                nonEmpty: true
+                notEmpty: true
             }
         },
         tweetDate: {
@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                nonEmpty: true
+                notEmpty: true
             }
         }
     })
