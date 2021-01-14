@@ -6,8 +6,8 @@ import {useMessageContext} from "../../../../GlobalStates/MessageState"
 import { REFRESH_TWEETS } from "../../../../GlobalStates/TweetState/tweetAction"
 import { LOAD_ALL_MESSAGE_TEMPLATES } from "../../../../GlobalStates/MessageState/messageAction"
 
-import TweetsAPI from "../../../../utils/APIs/TweetsAPI"
-import MessageTemplateAPI from "../../../../utils/APIs/MessageTemplateAPI"
+import TweetsAPI from "../../../../APIs/TweetsAPI"
+import MessageTemplateAPI from "../../../../APIs/MessageTemplateAPI"
 
 import TweetCard from "../TweetCard"
 import { Card, Container, Segment } from "semantic-ui-react"
@@ -21,7 +21,8 @@ export default function TweetDisplay(props) {
 
     const getNewTweets = () => {
         if (tweetState.keyword) {
-            TweetsAPI.getNewTweets(tweetState.keyword).then(tweets => {
+            TweetsAPI.getNewTweets(tweetState.keyword.word).then(tweets => {
+                console.log(tweets)
             
                 if (tweets.length > 0) {
                     tweetDispatch({ type: REFRESH_TWEETS, tweets: tweets })

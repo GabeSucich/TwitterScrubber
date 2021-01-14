@@ -10,7 +10,7 @@ const Keyword = {
 
     findKeyword(keyword, userId) {
         keyword = keyword.toLowerCase()
-        return db.Keyword.findAll({ where: { word: keyword, userId: userId } }).then(records => {
+        return db.Keyword.findOne({ where: { word: keyword, userId: userId } }).then(records => {
             return records
         })
     },
@@ -18,7 +18,7 @@ const Keyword = {
     createKeyword(keyword, userId) {
         keyword = keyword.toLowerCase()
         return this.findKeyword(keyword, userId).then(dbKeyword => {
-            if (dbKeyword.length != 0) {
+            if (dbKeyword) {
                 return dbKeyword
             } else {
                 return db.Keyword.create({ word: keyword, UserId: userId })

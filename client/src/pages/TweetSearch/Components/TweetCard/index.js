@@ -2,7 +2,7 @@ import React from "react"
 import RejectButton from "../RejectButton"
 import {Card, Image} from "semantic-ui-react"
 
-import TweetsAPI from "../../../../utils/APIs/TweetsAPI"
+import TweetsAPI from "../../../../APIs/TweetsAPI"
 
 import {useTweetContext} from "../../../../GlobalStates/TweetState"
 import {TWEET_SELECTED} from "../../../../GlobalStates/TweetState/tweetAction"

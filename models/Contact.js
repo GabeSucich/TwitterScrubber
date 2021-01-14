@@ -40,7 +40,8 @@ module.exports = function (sequelize, DataTypes) {
     })
 
     Contact.associate = function(models) {
-        Contact.hasOne(models.Tweet, { onDelete: "cascade"})
+        Contact.hasMany(models.Tweet, {onDelete: "cascade", foreignKey: {name: "AuthorId"}})
+        Contact.hasMany(models.Message, {onDelete: "cascade", foreignKey: {name: "AuthorId"}})
         Contact.belongsTo(models.User, {foreignKey: {allowNull: false} })
     }
 

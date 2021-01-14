@@ -13,7 +13,7 @@ module.exports = function(app) {
         var keyword = req.params.keyword
         var userId = req.user.id
         Keyword.findKeyword(keyword, userId).then(dbKeyword => {
-            if (dbKeyword.length != 0) {
+            if (dbKeyword) {
                 
                 res.json(dbKeyword)
             } else {
@@ -22,6 +22,14 @@ module.exports = function(app) {
                     res.json(dbKeyword)
                 })
             }
+        })
+    })
+
+    app.delete("/api/keywords/:keyword", (req, res) => {
+        var keyword = req.params.keyword
+        var userId = req.user.id
+        Keyword.deleteKeyword(keyword, userId).then(result => {
+            res.json(result)
         })
     })
 

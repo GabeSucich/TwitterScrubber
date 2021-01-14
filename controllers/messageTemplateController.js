@@ -9,8 +9,14 @@ const MessageTemplate = {
     findUserMessageTemplates(userId) {
         return db.MessageTemplate.findAll({where: {UserId: userId}})
     },
+    
+    findMessageTemplateByTitle(messageTitle, userId) {
+        messageTitle = messageTitle.toLowerCase()
+        return db.MessageTemplate.findOne({where: {shortTitle: messageTitle, UserId: userId}})
+    },
 
     createMessageTemplate(messageBody, userId) {
+        messageBody["shortTitle"] = messageBody["shortTitle"].toLowerCase()
         return db.MessageTemplate.create({ ...messageBody, UserId: userId })
     },
 
@@ -29,4 +35,3 @@ const MessageTemplate = {
 }
 
 module.exports = MessageTemplate
-

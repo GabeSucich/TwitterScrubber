@@ -27,6 +27,8 @@ module.exports = function (sequelize, DataTypes) {
     User.hasMany(models.Contact, {onDelete: "cascade"});
     User.hasMany(models.Blacklist, {onDelete: "cascade"});
     User.hasMany(models.Message, {onDelete: "cascade"});
+    User.hasMany(models.MessageTemplate, {onDelete: "cascade"})
+    User.hasMany(models.Tweet, {onDelete: "cascade"})
   };
   return User;
 }

@@ -11,18 +11,11 @@ module.exports = function (sequelize, DataTypes) {
             }, 
             primaryKey: true
         },
-        keyword : {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
-        },
         tweetDate: {
             type: DataTypes.DATE
         },
         text : {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -31,7 +24,11 @@ module.exports = function (sequelize, DataTypes) {
     })
 
     Tweet.associate = function(models) {
-        Tweet.belongsTo(models.Contact, {foreignKey: {allowNull: false}})
+        Tweet.hasOne(models.Message, {onDelete: "cascade", foreignKey: {name: "TweetId"}})
+        Tweet.belongsTo(models.User, {foreignKey: {allowNull: false}})
+        Tweet.belongsTo(models.Contact, {foreignKey: {name: "AuthorId", allowNull: false}})
+        Tweet.belongsTo(models.Keyword, {foreignKey: {allowNull: false}})
+
     }
 
     return Tweet

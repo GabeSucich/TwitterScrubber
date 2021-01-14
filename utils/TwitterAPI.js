@@ -1,5 +1,5 @@
 const Axios = require("axios")
-const getTweets = require("../routes/getTweets")
+const getTweets = require("../routes/handleTweets")
 
 const TwitterAPI = {
 

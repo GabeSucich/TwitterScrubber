@@ -5,7 +5,7 @@ const { Op } = Sequelize
 const Contact = {
     
     findContact(authorId, userId) {
-        return db.Contact.findAll({where : { authorId: authorId, userId:userId }})
+        return db.Contact.findOne({where : { authorId: authorId, userId:userId }})
     },
 
     findAllContacts(authorIdList, userId) {
@@ -24,8 +24,8 @@ const Contact = {
 
     createContact(contactBody, userId) {
         return this.findContact(contactBody.authorId, userId).then(dbContact => {
-            if (dbContact.length != 0) {
-                return dbContact[0]
+            if (dbContact) {
+                return dbContact
             } else {
                 return db.Contact.create({...contactBody, UserId: userId})
             }

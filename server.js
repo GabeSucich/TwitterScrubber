@@ -18,12 +18,13 @@ app.use(passport.session());
 
 
 require("./routes/authentication")(app)
-require("./routes/getTweets")(app)
 require("./routes/handleTweets")(app)
 require("./routes/keywords")(app)
 require("./routes/messageTemplates")(app)
+require("./routes/handleContacts")(app)
+require("./routes/handleMessages")(app)
 
-db.sequelize.sync({ force: false }).then(function () {
+db.sequelize.sync({ force:false}).then(function () {
     app.listen(PORT, function () {
         console.log("Server listening on localhost:" + PORT)
     })
