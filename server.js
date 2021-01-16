@@ -17,12 +17,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-require("./routes/authentication")(app)
-require("./routes/handleTweets")(app)
-require("./routes/keywords")(app)
-require("./routes/messageTemplates")(app)
-require("./routes/handleContacts")(app)
-require("./routes/handleMessages")(app)
+require("./routes/authenticationRoutes")(app)
+require("./routes/contactRoutes")(app)
+require("./routes/keywordRoutes")(app)
+require("./routes/messageRoutes")(app)
+require("./routes/messageTemplateRoutes")(app)
+require("./routes/tweetRoutes")(app)
 
 db.sequelize.sync({ force:false}).then(function () {
     app.listen(PORT, function () {

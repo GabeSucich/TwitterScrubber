@@ -46,7 +46,7 @@ export default function TweetDisplay(props) {
     }, [])
 
     return (
-        <Container fluid>
+        <Container>
             <SearchBar/>
             {!moreTweets ? <Segment>You've searched all recent tweets for this keyword. Try changing keywords!</Segment> :
                 <Card.Group>

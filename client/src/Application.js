@@ -12,28 +12,19 @@ export default function Application(props) {
 
     const [userState, userDispatch] = useUserContext()
 
-    useEffect(() => {
-        UserAPI.login("urdadmad", "yeeeeeeet").then(user => {
-            console.log(user)
-            if (user) {
-                userDispatch({ type: SET_USER, user: user })
-            }
-        })
-    }, [])
-
     return (
-        <Container>
-            <Router>
-                {userState.user ?
-                    <Switch>
-                        <Route>
-                            <Home/>
-                        </Route>
-                    </Switch>
-                    : <Credentials />
-                }
-            </Router>
-        </Container>
+
+        <Router>
+            {userState.user ?
+                <Switch>
+                    <Route>
+                        <Home />
+                    </Route>
+                </Switch>
+                : <Credentials />
+            }
+        </Router>
+
     )
 
 }

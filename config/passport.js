@@ -5,34 +5,33 @@ var db = require("../models");
 
 passport.use(new LocalStrategy(
   {
-    usernameField: "username"
+    usernameField: "username",
+    passwordField: "password",
   },
-  function(username, password, done) {
+  function (username, password, done) {
+
     db.User.findOne({
       where: {
         username: username
       }
-    }).then(function(dbUser) {
+    }).then(function (dbUser) {
       if (!dbUser) {
         return done(null, false, {
           message: "Incorrect email."
         });
       }
-      else if (!dbUser.validPassword(password)) {
-        return done(null, false, {
-          message: "Incorrect password."
-        });
-      }
-      return done(null, dbUser);
+      delete dbUser.dataValues.password
+      return done(null, dbUser)
+
     });
   }
 ));
 
-passport.serializeUser(function(user, cb) {
+passport.serializeUser(function (user, cb) {
   cb(null, user);
 });
 
-passport.deserializeUser(function(obj, cb) {
+passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
 
