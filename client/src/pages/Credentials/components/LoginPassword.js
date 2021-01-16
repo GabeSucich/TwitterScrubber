@@ -1,8 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import { Container, Input, Button, Icon, Message, Divider } from "semantic-ui-react"
 
 export default function LoginPassword({ validUser, currentPassword, handlePasswordChange, passwordError, checkPassword, validPassword, ...props }) {
+
+    const [visible, setVisible] = useState(false)
+
+    const toggleVisiblity = () => {
+        setVisible(!visible)
+    }
 
     if (!validUser) {
         return null
@@ -10,11 +16,12 @@ export default function LoginPassword({ validUser, currentPassword, handlePasswo
         return (
             <Container fluid>n
                 <Input
+                    type="password"
                     fluid
                     disabled
                     icon="lock open"
                     iconPosition="left"
-                    label={<Button color="green"><Icon name="check" color="white"/></Button>}
+                    label={<Button color="green"><Icon name="check"/></Button>}
                     labelPosition="right"
                     placeholder="Password"
                     value={currentPassword}
@@ -25,9 +32,12 @@ export default function LoginPassword({ validUser, currentPassword, handlePasswo
         return (
             <Container fluid>
                 <Input
+                    type={visible ? "text" : "password"}
                     fluid
                     icon="lock"
                     iconPosition="left"
+                    label={<Button onClick = {toggleVisiblity}><Icon name={visible ? "hide" : "eye"} /></Button>}
+                    labelPosition="right"
                     placeholder="Password"
                     value={currentPassword}
                     onChange={e => handlePasswordChange(e.target.value)}

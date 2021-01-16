@@ -66,7 +66,7 @@ export default function Signup(props) {
         if (!errorMessage) {
             setValidPassword(true)
             UserAPI.signup(currentUsername, currentPassword).then(newUser => {
-                login()
+                login(newUser)
                 
             })
         } else {
@@ -93,25 +93,25 @@ export default function Signup(props) {
                 <Grid.Column computer={5} tablet={8} mobile={12}>
                     <Segment textAlign="center" style={{width: "100%"}} loading={validPassword ? true : false}>
 
-                        <Header color="blue" size="huge">Login</Header>
+                        <Header color="blue" size="huge">Create Account</Header>
 
-                        {/* <LoginUsername
+                        <SignupUsername
                             currentUsername={currentUsername}
                             handleUsernameChange={handleUsernameChange}
                             loadingUsername={loadingUsername}
                             usernameError={usernameError}
                             checkUsername={checkUsername}
-                            validUser={validUser} />
+                            uniqueUsername={uniqueUsername} />
 
                         <Divider hidden />
-                        <LoginPassword
-                            validUser={validUser}
+                        <SignupPassword
+                            uniqueUsername={uniqueUsername}
                             currentPassword={currentPassword}
                             handlePasswordChange={handlePasswordChange}
                             passwordError={passwordError}
                             checkPassword={checkPassword}
                             validPassword={validPassword}
-                        /> */}
+                        />
 
                     </Segment>
                     <Divider horizontal><span className="horizontal-divider">OR</span></Divider>
@@ -119,11 +119,11 @@ export default function Signup(props) {
                         <Container fluid>
                             <Message compact>
                                 <Header size="large">
-                                    <Link to="/signup">Signup</Link>
+                                    <Link to="/">Login</Link>
                                 </Header>
                                 <Divider />
                                 <Message.Content>
-                                    Create an account and make customer aquisition easier than ever.
+                                    If you already have an account.
                                 </Message.Content>
                             </Message>
                         </Container>

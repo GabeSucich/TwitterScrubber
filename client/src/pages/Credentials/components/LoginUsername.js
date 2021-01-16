@@ -25,7 +25,7 @@ export default function LoginUsername({ currentUsername, handleUsernameChange, l
                     fluid
                     disabled
                     icon="user"
-                    label={<Button color = "green"><Icon name="check" color="white"/></Button>}
+                    label={<Button color = "green"><Icon name="check"/></Button>}
                     labelPosition="right"
                     iconPosition="left"
                     value={currentUsername}

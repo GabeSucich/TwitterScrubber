@@ -30,6 +30,7 @@
     "passport-local": "^1.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-loading": "^2.0.3",
     "react-materialize": "^3.9.6",
     "react-router-dom": "^5.2.0",
     "semantic-ui-css": "^2.4.1",

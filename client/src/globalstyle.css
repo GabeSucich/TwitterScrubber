@@ -1,3 +1,20 @@
 .overflow {
     overflow: auto !important;
 }
+
+.fullscreen {
+    height: 100vh !important;
+    width: 100vw !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.icon-button {
+    padding: 10% 10% !important
+}
+
+.icon-button-icon {
+    margin: 0 !important;
+}

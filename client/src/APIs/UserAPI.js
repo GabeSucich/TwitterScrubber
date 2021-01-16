@@ -3,14 +3,14 @@ import bcrypt, { hash } from "bcryptjs"
 
 const UserAPI = {
 
-    getUserInfo() {
+    currentUserInfo() {
         return Axios({
             method: "GET",
-            url: "/api/userInfo"
+            url: "/api/currentUser"
         }).then(response => {
             return response.data
         }).catch(err => {
-            return null
+            console.log(err)
         })
     },
 

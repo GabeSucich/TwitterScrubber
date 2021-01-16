@@ -36,8 +36,8 @@ export default function TweetCard({tweet, ...props}) {
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <RejectButton onClick={handleReject}/>
-                <ContactButton tweet = {tweet}/>
+                {/* <RejectButton onClick={handleReject}/> */}
+                <ContactButton dismiss = {handleReject} tweet = {tweet}/>
             </Card.Content>
         </Card>
     )

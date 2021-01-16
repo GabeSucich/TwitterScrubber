@@ -45,11 +45,12 @@ export default function SearchBar() {
     }
 
     return (
-        <Container fluid>
+        <Container fluid style={{padding: "0"}}>
             <Segment>
                 <Input placeholder='Search tweets by keyword...' value={keyword} onChange={(event) => handleChange(event)} className="keyword-search" />
                 {keyword ? <Button icon color="violet" onClick={handleSubmit} ><Icon name="search" /></Button> : null}
             </Segment>
+            
             {keywordOptions.length > 0 &&
                 <Segment className="keyword-segment">
                     {keywordOptions.map((keyword, index) => {
@@ -69,8 +70,8 @@ function KeywordButton({ onKeywordClick, onDelete, keyword, ...props }) {
 
     return (
         <Button.Group className="keyword-button">
-            <Button color="violet" onClick={() => onKeywordClick(keyword)}>{keyword}</Button>
-            <Button icon="close" onClick={() => onDelete(keyword)} style={{ marginRight: '2' }} />
+            <Button color="blue" onClick={() => onKeywordClick(keyword)}>{keyword}</Button>
+            <Button className = "icon-button" onClick={() => onDelete(keyword)} style={{ marginRight: '2' }}><Icon className = "icon-button-icon" name="close"/></Button>
         </Button.Group>
 
     )

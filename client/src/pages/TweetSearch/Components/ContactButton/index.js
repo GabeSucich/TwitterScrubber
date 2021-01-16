@@ -7,7 +7,7 @@ import MessageDisplay from "../../../MessageDisplay"
 import "./style.css"
 
 
-export default function ContactButton({ tweet, ...props }) {
+export default function ContactButton({ tweet, dismiss, ...props }) {
 
     const [dimmerActive, setDimmerActive] = useState(false)
 
@@ -20,8 +20,9 @@ export default function ContactButton({ tweet, ...props }) {
     }
 
     return (
-        <Container fluid>
+        <Container fluid className="no-padding">
             <Button primary onClick = {openDimmer}>Contact</Button>
+            <Button onClick={dismiss} color={"red"} floated="right">Dismiss</Button>
             <Dimmer page active = {dimmerActive} onClickOutside = {closeDimmer}>
                 <MessageDisplay tweet = {tweet} closeDimmer = {closeDimmer} />
             </Dimmer>

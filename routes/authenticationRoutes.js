@@ -4,9 +4,13 @@ const isAuthenticated = require("../config/middleware/isAuthenticated")
 
 module.exports = function (app) {
 
-    app.get("/api/userInfo", isAuthenticated, function (req, res) {
-        const { password, ...otherInfo } = req.user
-        res.json(otherInfo)
+    app.get("/api/currentUser", function (req, res) {
+
+        if (!req.user) {
+            res.json(null)
+        } else {
+            res.json(req.user)
+        }
     })
 
     app.post("/api/signup", function (req, res) {
@@ -14,8 +18,8 @@ module.exports = function (app) {
         User.createUser(req.body.username, req.body.password).then(newUser => {
             res.json(newUser)
         })
-            
-        
+
+
     })
 
     app.post("/api/getCredentials", (req, res) => {
@@ -29,7 +33,7 @@ module.exports = function (app) {
     })
 
     app.post("/api/login", passport.authenticate('local'), (req, res) => {
-    
+
         res.json(req.user)
     })
 
